@@ -16,11 +16,11 @@ class Dashboard extends Component {
     componentDidMount (){
 
         axios.get('/api/houses').then(
-            res => {
+            res => 
             this.setState({
                 houses: res.data
             })
-        }
+        
         // console.log('hello')
         )
         .catch(err => console.log('goodbye', err))
@@ -28,13 +28,20 @@ class Dashboard extends Component {
     showHouses = () => {
         // console.log('fired')
         axios.get('/api/houses').then(
-            res => {
+            res => 
             this.setState({
                 houses: res.data
             })
-        }
+        
         )
         .catch(err => console.log('goodbye', err))
+    }
+
+    deleteHouse = (id) => {
+        console.log(id)
+        axios.delete(`/api/houses/${id}`).then(res =>
+            this.showHouses()
+        ).catch(err => console.log(err))
     }
 
     render(){
@@ -43,15 +50,20 @@ class Dashboard extends Component {
             <div className="dash_div">
                 <div className="top-part">
                 <h2>Dashboard</h2>
-                <Link to="/wizard">
+                <Link to="/wizard/step1">
                     <button id="add-new">Add New Property</button>
                 </Link>
                 </div>
                 ______________________________________________________
                 <div className="housesHolder">
-                    Home Listings
+                    <h3>Home Listings</h3>
                     {houses.map((element, index) => {
-                        return <House currentHouse={element} key={index}/>
+                        return <House 
+                            currentHouse={element} 
+                            key={index}
+                            id={index}
+                            deleteMe={this.deleteHouse}
+                            />
                     })}
                 </div>
 

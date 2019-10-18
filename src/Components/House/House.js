@@ -10,8 +10,17 @@ class House extends Component {
     render(){
         return(
             <div>
-                {this.props.currentHouse.name}
-                <button>Delete</button>
+                Property Name:{this.props.currentHouse.name}
+                <br/>
+                Address: {this.props.currentHouse.address}
+                <br/>
+                City: {this.props.currentHouse.city}
+                <br/>
+                State: {this.props.currentHouse.state}
+                <br/>
+                Zip: {this.props.currentHouse.zipCode}
+                <br/>
+                <button onClick={() => this.props.deleteMe(this.props.currentHouse.id)}>Delete</button>
             </div>
         )
     }
