@@ -1,0 +1,26 @@
+.dash_div {
+    background-color: rgb(219,215,207);
+    width: 50vw;
+}
+
+h2 {
+    color: darkslategray;
+    font-size: 38px;
+}
+
+.top-part {
+    display: flex;
+    /* background-color: pink; */
+    align-items: center;
+    height: 70px;
+    justify-content: space-around;
+}
+
+
+
+#add-new {
+    background-color: rgb(107,228,117);
+    color: black;
+    font-size: 20px;
+    
+}
